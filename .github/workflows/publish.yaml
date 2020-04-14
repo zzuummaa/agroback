@@ -26,7 +26,7 @@ jobs:
         run:  echo ${{ secrets.DOCKER_PWD }} | docker login -u ${{ secrets.DOCKER_LOGIN }} --password-stdin
         # Чекаутим код
       - name: Build image
-        # Собираем image и называем его так как указано в hub.docker т.е. login/repository:version
+        # Собираем image и называем его так как указано в hub.docker т.е. login/repository:release
         run: docker build -t $LOGIN/$NAME:release -f Dockerfile .
       - name: Push image to docker.io
         # Пушим образ в registry
