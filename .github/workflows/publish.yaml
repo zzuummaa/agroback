@@ -25,7 +25,6 @@ jobs:
         # Сначала мы логинимся в docker.io
         run:  echo ${{ secrets.DOCKER_PWD }} | docker login -u ${{ secrets.DOCKER_LOGIN }} --password-stdin
         # Чекаутим код
-      - uses: actions/checkout@master
       - name: Build image
         # Собираем image и называем его так как указано в hub.docker т.е. login/repository:version
         run: docker build -t $LOGIN/$NAME:release -f Dockerfile .
